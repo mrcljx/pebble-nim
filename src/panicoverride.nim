@@ -1,3 +1,4 @@
+{.push debugger:off, hints:off.}
 
 proc printf(frmt: cstring) {.varargs, importc, header: "<stdio.h>", cdecl.}
 proc exit(code: int) {.importc, header: "<stdlib.h>", cdecl.}
@@ -16,4 +17,5 @@ proc panic(s: string) =
 # template sysFatal(exceptn: typeDesc, message: string)
 # template sysFatal(exceptn: typeDesc, message, arg: string)
 
+{.pop.}
 {.pop.}
