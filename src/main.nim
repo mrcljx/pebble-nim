@@ -34,10 +34,6 @@ proc window_load_handler(window: ptr Window) {.noconv.} =
 
   window_set_click_config_provider_with_context(window, click_config_provider, text_layer)
 
-proc window_unload_handler(w: ptr Window) = return
-proc window_appear_handler(w: ptr Window) = return
-proc window_disappear_handler(w: ptr Window) = return
-
 proc main(): int {.exportc.} =
   app_log(APP_LOG_LEVEL_DEBUG, "Pebble-y Nim, Nim-y Pebble");
   let window = window_create()
