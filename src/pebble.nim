@@ -5,16 +5,16 @@ type
   TextLayer {.importc, header:"<pebble.h>", nodecl.} = object
 
   Window {.importc, header:"<pebble.h>", nodecl.} = object
-  WindowHandler {.importc, header:"<pebble.h>", nodecl.} = proc(window: ptr Window) {.noconv.}
+  WindowHandler {.importc, header:"<pebble.h>", nodecl.} = proc(window: ptr Window) {.cdecl.}
   WindowHandlers {.importc, header:"<pebble.h>", nodecl.} = object
     load: WindowHandler
     appear: WindowHandler
     disappear: WindowHandler
     unload: WindowHandler
 
-  ClickHandler {.importc, header:"<pebble.h>", nodecl.} = proc(click_recognizer: ClickRecognizerRef, context: pointer) {.noconv.}
+  ClickHandler {.importc, header:"<pebble.h>", nodecl.} = proc(click_recognizer: ClickRecognizerRef, context: pointer) {.cdecl.}
   ClickRecognizerRef {.importc:"Window", header:"<pebble.h>", nodecl.} = pointer
-  ClickConfigProvider {.importc, header:"<pebble.h>", nodecl.} = proc(context: pointer) {.noconv.}
+  ClickConfigProvider {.importc, header:"<pebble.h>", nodecl.} = proc(context: pointer) {.cdecl.}
 
   AppLogLevel {.importc, header:"<pebble.h>", nodecl.} = enum
     APP_LOG_LEVEL_ERROR = 1

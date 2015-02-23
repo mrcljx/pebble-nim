@@ -1,24 +1,24 @@
 import panicoverride
 include pebble
 
-proc select_click_handler(click_recognizer: ClickRecognizerRef, context: pointer) {.noconv.} =
+proc select_click_handler(click_recognizer: ClickRecognizerRef, context: pointer) {.cdecl.} =
   let text_layer = cast[ptr TextLayer](context)
   text_layer_set_text(text_layer, "Select!")
 
-proc up_click_handler(click_recognizer: ClickRecognizerRef, context: pointer) {.noconv.} =
+proc up_click_handler(click_recognizer: ClickRecognizerRef, context: pointer) {.cdecl.} =
   let text_layer = cast[ptr TextLayer](context)
   text_layer_set_text(text_layer, "Up!")
 
-proc down_click_handler(click_recognizer: ClickRecognizerRef, context: pointer) {.noconv.} =
+proc down_click_handler(click_recognizer: ClickRecognizerRef, context: pointer) {.cdecl.} =
   let text_layer = cast[ptr TextLayer](context)
   text_layer_set_text(text_layer, "Down!")
 
-proc click_config_provider(context: pointer) {.noconv.} =
+proc click_config_provider(context: pointer) {.cdecl.} =
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler)
   window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler)
   window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler)
 
-proc window_load_handler(window: ptr Window) {.noconv.} =
+proc window_load_handler(window: ptr Window) {.cdecl.} =
   app_log(APP_LOG_LEVEL_DEBUG, "window loaded!")
   let window_layer = window_get_root_layer(window)
   let window_bounds = layer_get_bounds(window_layer)
