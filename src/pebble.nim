@@ -1,3 +1,5 @@
+{.push debugger:off, hints:off.}
+
 type
   Layer {.importc, header:"<pebble.h>", nodecl.} = object
   TextLayer {.importc, header:"<pebble.h>", nodecl.} = object
@@ -72,3 +74,5 @@ proc app_log_internal(log_level: uint8, src_filename: cstring, src_line_number: 
 # TODO: varargs
 proc app_log(log_level: AppLogLevel, format: cstring) =
   app_log_internal(cast[uint8](log_level), "nim", 0, format)
+
+{.pop.}
