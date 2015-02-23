@@ -5,6 +5,8 @@
 # Feel free to customize this to your needs.
 #
 
+import shutil
+
 from waflib import Task, TaskGen
 from waflib.TaskGen import extension
 
@@ -40,6 +42,9 @@ def configure(ctx):
 
 def build(ctx):
     ctx.env.NIM = 'nim'
+    ctx.env.NIM_PATH = '/usr/local/opt/nimrod'
+
+    shutil.copy2(ctx.env.NIM_PATH + '/nim/lib/nimbase.h', 'src/_nimbase.h')
 
     ctx.load('pebble_sdk')
 
