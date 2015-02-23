@@ -13,8 +13,9 @@ out = 'build'
 
 TaskGen.declare_chain(
     name='nim',
-    rule=('${NIM} c -c '
-          '-d:release '
+    rule=('${NIM} c '
+          '--compileOnly '
+          '--define:release '
           '--os:standalone '
           '--deadCodeElim:off '
           '--noMain '
